@@ -1,0 +1,20 @@
+﻿@using ClientDependency.Core.Mvc
+@{
+    Html.RequiresJs("~/Scripts/ViewScripts/HomePage.js")
+        .RequiresJs("~/Scripts/jquery-1.10.2.min.js");
+}
+@Html.RenderJsHere()
+<div>
+    <br />
+    <button class="ajax-call-button-click">Click me to make Ajax call</button>
+    <br/>
+    <div class="display-ajax-call-data"></div>
+</div>
+<script>
+    $(function () {
+        var presets = {
+            getDataUrl: "@Url.Action("GetData","Home")"
+    };
+        var app = new Application.Home.HomePageApp(presets);
+    });
+</script>
